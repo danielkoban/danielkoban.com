@@ -1,0 +1,154 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/media' as *;
+
+:host {
+  header {
+    padding: 1.6rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.4rem;
+
+    .header__logo {
+      z-index: 10;
+
+      h1 {
+        font-family: "Archivo Black", "Roboto", Arial, Helvetica, sans-serif;
+        font-size: 3.2rem;
+        text-transform: uppercase;
+        letter-spacing: -0.125rem;
+
+        @include media-large-down {
+          font-size: 2.4rem;
+          letter-spacing: unset;
+        }
+      }
+
+      a {
+        color: $black--rich;
+        text-decoration: none;
+        transition: color .3s ease-out;
+
+        &:hover {
+          color: $black--chinese;
+        }
+      }
+    }
+
+    nav {
+      @include media-large-down {
+        position: absolute;
+        background-color: $white--lotion;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        transition: hidden;
+        opacity: 0;
+        transition: visibility 600ms cubic-bezier(.4,0,.2,1), opacity 400ms cubic-bezier(.4,0,.2,1);
+        will-change: visibility, opacity;
+
+        &.open {
+          visibility: visible;
+          opacity: 1;
+
+          ul {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+
+      ul {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2.4rem;
+        transition: transform .6s cubic-bezier(.4,0,.2,1), opacity .4s cubic-bezier(.4,0,.2,1);
+        will-change: transform;
+
+        @include media-large-down {
+          flex-direction: column;
+          align-items: center;
+          transform: translateY(20px);
+          opacity: 0;
+        }
+
+        li {
+          a {
+            font-size: 1.4rem;
+            color: $gray--davys;
+            text-decoration: none;
+            transition: color .3s ease-out;
+
+            &:hover {
+              color: $black--chinese;
+            }
+
+            @include media-large-down {
+              font-size: 2.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      z-index: 10;
+
+      @include media-large-down {
+        display: block;
+      }
+
+      &:hover {
+        .bar {
+          background-color: $black--chinese;
+        }
+      }
+
+      &.open {
+        .bar {
+          &:nth-of-type(1) { transform: translateY(10px) rotate(45deg); }
+          &:nth-of-type(2) { opacity: 0; }
+          &:nth-of-type(3) { transform: translateY(-10px) rotate(-45deg); }
+        }
+      }
+
+      .bar{
+        height: 3px;
+        width: 35px;
+        display: block;
+        margin: 7px auto;
+        position: relative;
+        background-color: $gray--davys;
+        border-radius: 10px;
+        transition: all .4s ease-out;
+
+        &:nth-of-type(1){ animation: rotateR 1.5s cubic-bezier(.5, .2, .2, 1);}
+        &:nth-of-type(2){ animation: fade 1.5s cubic-bezier(.1, .8, .1, 1);}
+        &:nth-of-type(3){ animation: rotateL 1.5s cubic-bezier(.5, .2, .2, 1);}
+      }
+    }
+  }
+}
+
+@keyframes rotateR {
+  from { transform: translateY(0px) rotate(0) }
+  to { transform: translateY(10px) rotate(45deg) }
+}
+@keyframes rotateL {
+  from { transform: translateY(0px) rotate(0) }
+  to { transform: translateY(-10px) rotate(-45deg) }
+}
+@keyframes fade {
+  from {opacity: 1; }
+  to {opacity: 0; }
+}

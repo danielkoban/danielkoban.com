@@ -1,0 +1,12 @@
+:host {
+  width: 100%;
+  max-width: 144rem;
+  min-height: 100vh;
+  padding: 0 2.4rem;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1;
+  }
+}

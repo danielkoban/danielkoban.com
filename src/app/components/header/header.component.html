@@ -1,0 +1,26 @@
+@let isMenuOpen = this.isOpen();
+
+<header>
+  <div class="header__logo">
+    <h1>
+      <a href="/" aria-label="Go back to homepage">Daniel Koban</a>
+    </h1>
+  </div>
+
+  <nav [class.open]="isMenuOpen">
+    <ul>
+      <li>
+        <a href="/landscape" aria-label="Go to Landscape page">Landscape</a>
+      </li>
+      <li>
+        <a href="/about" aria-label="Read about me">About</a>
+      </li>
+    </ul>
+  </nav>
+
+  <button class="hamburger" [class.open]="isMenuOpen" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </button>
+</header>
