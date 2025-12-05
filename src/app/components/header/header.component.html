@@ -9,12 +9,13 @@
 
   <nav [class.open]="isMenuOpen">
     <ul>
-      <li>
-        <a href="/landscape" aria-label="Go to Landscape page">Landscape</a>
-      </li>
-      <li>
-        <a href="/about" aria-label="Read about me">About</a>
-      </li>
+      @for(link of links; track link.label ) {
+        <li>
+          <a [routerLink]="link.url" routerLinkActive="active" [aria-label]="link.ariaLabel">
+            {{ link.label }}
+          </a>
+        </li>
+      }
     </ul>
   </nav>
 

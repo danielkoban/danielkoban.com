@@ -89,6 +89,10 @@
               color: $black--chinese;
             }
 
+            &.active {
+              color: $black--chinese;
+            }
+
             @include media-large-down {
               font-size: 2.8rem;
             }
