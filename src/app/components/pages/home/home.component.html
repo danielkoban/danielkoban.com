@@ -1,3 +1,17 @@
 <section>
   <h2>Home</h2>
+
+  <!-- #TODO: update template with @defer @loading @error @placeholder -->
+
+  @if (loading()) {
+    <p>Loading...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else {
+    @for (post of posts(); track post.sys.id) {
+      @for (img of post.fields.images ?? []; track img.sys.id) {
+        <img [src]="'https:' + img.fields.file.url" [alt]="img.fields.description || ''">
+      }
+    }
+  }
 </section>
