@@ -3,7 +3,7 @@
 
 :host {
   header {
-    padding: 1.6rem 0;
+    padding: 1.6rem 0 2.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,7 +46,6 @@
         visibility: hidden;
         overflow-y: scroll;
         overflow-x: hidden;
-        transition: hidden;
         opacity: 0;
         transition: visibility 600ms cubic-bezier(.4,0,.2,1), opacity 400ms cubic-bezier(.4,0,.2,1);
         will-change: visibility, opacity;
@@ -54,6 +53,7 @@
         &.open {
           visibility: visible;
           opacity: 1;
+          z-index: 5;
 
           ul {
             transform: translateY(0);

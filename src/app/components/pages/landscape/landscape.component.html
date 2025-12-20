@@ -1,20 +1,17 @@
-<section>
-  <h2>Landscape</h2>
+@let _loading = loading();
+@let _error = error();
+@let _images = images();
 
-  @if (loading()) {
+<section>
+  @if (_loading) {
     <p>Loading...</p>
-  } @else if (error()) {
-    <p class="error">{{ error() }}</p>
+  } @else if (_error) {
+    <p class="error">{{ _error }}</p>
   } @else {
-    @if (post(); as currentPost) {
-      <div>
-        <h3>{{ currentPost.fields.slug }}</h3>
-        @for (img of currentPost.fields.images ?? []; track img.sys.id) {
-          <img [src]="'https:' + img.fields.file.url" [alt]="img.fields.description || ''">
-        }
-      </div>
+    @if (_images) {
+      <app-image-slider [images]="_images" />
     } @else {
-      <p>No post found</p>
+      <p>No photos found</p>
     }
   }
 </section>

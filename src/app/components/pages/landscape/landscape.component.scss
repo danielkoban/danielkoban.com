@@ -1,3 +1,11 @@
-:host {
+@use '../../../../styles/media' as *;
 
+:host {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  @include media-small-only {
+    margin: 0 -2.4rem;
+  }
 }
