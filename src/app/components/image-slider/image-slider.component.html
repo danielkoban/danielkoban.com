@@ -2,10 +2,8 @@
 
 <div
   class="image-slider"
-  tabindex="0"
   role="region"
   aria-label="Image slider"
-  (keydown)="onKeydown($event)"
 >
   <div class="image-slider__track" [style.transform]="translateX()">
     @for (img of _images; track img.sys.id) {

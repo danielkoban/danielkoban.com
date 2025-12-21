@@ -17,6 +17,14 @@ export class ImageSliderComponent {
 
   translateX = computed(() => `translateX(-${this.current() * 100}%)`);
 
+  ngOnInit() {
+    document.addEventListener('keydown', this.keydownHandler);
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('keydown', this.keydownHandler);
+  }
+
   next() {
     this.current.update(
       i => (i + 1) % this.images().length
@@ -29,15 +37,20 @@ export class ImageSliderComponent {
     );
   }
 
-  onKeydown(event: KeyboardEvent) {
-    if (event.key === 'ArrowRight') {
-      this.next();
+   private keydownHandler = (event: KeyboardEvent) => {
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+      return;
     }
 
-    if (event.key === 'ArrowLeft') {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      this.next();
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
       this.prev();
     }
-  }
+  };
 
   // TODO: add proper typing
   setOrientation(details: any): string  {
