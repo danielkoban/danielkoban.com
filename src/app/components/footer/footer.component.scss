@@ -16,7 +16,7 @@
     .footer__social-media {
       z-index: 10;
 
-      svg {
+      ::ng-deep app-icon svg {
         fill: $gray--davys;
         transition: fill .3s ease-out;
 

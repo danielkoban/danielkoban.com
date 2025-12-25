@@ -1,6 +1,8 @@
 @let _images = images();
 
-<button class="image-slider__navigation-button prev" aria-label="Back to previous photo" (click)="prev()"><<<</button>
+<button class="image-slider__navigation-button prev" aria-label="Back to previous photo" (click)="prev()">
+  <app-icon name="arrow-left" />
+</button>
 
 <div
   class="image-slider"
@@ -25,20 +27,10 @@
   <div class="right-area" (click)="next()"></div>
 </div>
 
-<button class="image-slider__navigation-button next" aria-label="See next photo" (click)="next()">>>></button>
+<button class="image-slider__navigation-button next" aria-label="See next photo" (click)="next()">
+  <app-icon name="arrow-right" />
+</button>
 
 <div class="counter">
   <span>{{ current() + 1 }} / {{ _images.length }}</span>
 </div>
-
-
-<!-- <div class="image-slider__navigation">
-  <button class="image-slider__navigation-button prev" aria-label="Back to previous photo" (click)="prev()"><<<</button> -->
-
-  <!-- <div class="counter">
-    <span>{{ current() + 1 }} / {{ _images.length }}</span>
-  </div> -->
-
-  <!-- <button class="image-slider__navigation-button next" aria-label="See next photo" (click)="next()">>>></button>
-</div> -->
-

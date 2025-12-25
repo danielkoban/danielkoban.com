@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, HostListener, input, signal } from '@angular/core';
 import { Asset } from 'contentful';
+import { IconComponent } from '../common/icon/icon.component';
 
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
   styleUrl: './image-slider.component.scss',
+  imports: [IconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

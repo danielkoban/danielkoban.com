@@ -14,6 +14,7 @@
     grid-template-areas:
     "slider slider slider"
     "prev counter next";
+    row-gap: 2.4rem;
   }
 
   .image-slider {
@@ -81,12 +82,33 @@
         border: none;
         background-color: transparent;
         font-size: 1.4rem;
-        color: $gray--davys;
         cursor: pointer;
         transition: color .3s ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
-          color: $black--chinese;
+          svg {
+            path {
+              fill: $black--chinese;
+            }
+          }
+        }
+
+        ::ng-deep app-icon svg {
+          width: 3.2rem;
+          height: 3.2rem;
+
+          @include media-small-only {
+            width: 1.6rem;
+            height: 1.6rem;
+          }
+
+          path {
+            fill: $gray--davys;
+            transition: fill .3s ease-out;
+          }
         }
 
         .prev {
@@ -102,13 +124,9 @@
 
   .counter {
     font-size: 1.4rem;
-    color: $gray--davys;
+    color: $black--olive;
     text-align: center;
     transition: color .3s ease-out;
     grid-area: counter;
-
-      &:hover {
-      color: $black--chinese;
-    }
   }
 }
