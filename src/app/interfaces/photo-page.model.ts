@@ -6,3 +6,13 @@ export interface PhotoPageFields {
 }
 
 export type PhotoPageSkeleton = EntrySkeletonType<PhotoPageFields, "photoPage">;
+
+export interface AboutPageFields {
+  slug: string;
+  title?: string;
+  description: string;
+  images?: Asset[];
+}
+
+export type AboutPageSkeleton = EntrySkeletonType<AboutPageFields, "aboutPage">;
+

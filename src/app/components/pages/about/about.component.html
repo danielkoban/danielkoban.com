@@ -1,3 +1,25 @@
+@let _loading = loading();
+@let _error = error();
+@let _page = page();
+
 <section>
-  <h2>About</h2>
+  @if (_loading) {
+    <p>Loading...</p>
+  } @else if (_error) {
+    <p class="error">{{ _error }}</p>
+  } @else {
+    @if (_page) {
+      <div class="about__img-wrapper">
+        @for (img of _page.fields.images ?? []; track img.sys.id) {
+          <img [src]="'https:' + img.fields.file.url" [alt]="img.fields.description || ''" loading="lazy">
+        }
+      </div>
+      <div class="about__content">
+        <h2 class="about__title">{{_page.fields.title}}</h2>
+        <div class="about__description" [innerHTML]="_page.fields.description"></div>
+      </div>
+    } @else {
+      <p>Sorry, something went wrong. Please try later.</p>
+    }
+  }
 </section>

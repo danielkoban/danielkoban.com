@@ -22,7 +22,7 @@ export class LandscapeComponent {
     return (images as unknown as Asset[]) ?? [];
   });
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cs.getPostBySlug('landscape');
   }
 }
