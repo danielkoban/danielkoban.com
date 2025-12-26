@@ -11,7 +11,12 @@
     <ul>
       @for(link of links; track link.label ) {
         <li>
-          <a [routerLink]="link.url" routerLinkActive="active" [aria-label]="link.ariaLabel">
+          <a
+            [routerLink]="link.url"
+            routerLinkActive="active"
+            [aria-label]="link.ariaLabel"
+            isMenuOpen ? (click)="toggleMenu()"
+          >
             {{ link.label }}
           </a>
         </li>
