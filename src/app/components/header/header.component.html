@@ -15,7 +15,7 @@
             [routerLink]="link.url"
             routerLinkActive="active"
             [aria-label]="link.ariaLabel"
-            isMenuOpen ? (click)="toggleMenu()"
+            (click)="isMenuOpen && toggleMenu()"
           >
             {{ link.label }}
           </a>
