@@ -6,15 +6,15 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-areas:
-    "prev slider next"
-    ". counter .";
-  row-gap: 1.6rem;
-
-  @include media-small-only {
-    grid-template-areas:
     "slider slider slider"
     "prev counter next";
     row-gap: 2.4rem;
+
+  @include media-large-up {
+    grid-template-areas:
+      "prev slider next"
+      ". counter .";
+    gap: 1.6rem;
   }
 
   .image-slider {
@@ -97,12 +97,12 @@
         }
 
         ::ng-deep app-icon svg {
-          width: 3.2rem;
-          height: 3.2rem;
+          width: 1.6rem;
+          height: 1.6rem;
 
-          @include media-small-only {
-            width: 1.6rem;
-            height: 1.6rem;
+          @include media-large-up {
+            width: 3.2rem;
+            height: 3.2rem;
           }
 
           path {
