@@ -5,12 +5,12 @@ import { Asset } from 'contentful';
 // import { AssetImage } from '../../../interfaces/photo-page.model';
 
 @Component({
-  selector: 'app-landscape',
-  templateUrl: './landscape.component.html',
-  styleUrl: './landscape.component.scss',
+  selector: 'app-lifestyle',
+  templateUrl: './lifestyle.component.html',
+  styleUrl: './lifestyle.component.scss',
   imports: [ImageSliderComponent]
 })
-export class LandscapeComponent {
+export class LifestyleComponent {
   private cs = inject(ContentfulService);
 
   post = this.cs.post;
@@ -23,6 +23,6 @@ export class LandscapeComponent {
   });
 
   ngOnInit(): void {
-    this.cs.getPostBySlug('landscape');
+    this.cs.getPostBySlug('lifestyle');
   }
 }

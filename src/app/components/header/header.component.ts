@@ -15,7 +15,7 @@ type LinkType = {
 
 export class HeaderComponent {
   links: LinkType[] = [
-    { url: '/landscape', label: 'Landscape', ariaLabel: 'Go to Landscape page' },
+    { url: '/lifestyle', label: 'Lifestyle', ariaLabel: 'Go to Lifestyle page' },
     { url: '/about', label: 'About', ariaLabel: 'Read about me' }
   ]
   isOpen = signal<boolean>(false);
