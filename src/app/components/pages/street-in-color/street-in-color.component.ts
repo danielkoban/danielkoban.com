@@ -4,12 +4,12 @@ import { ImageSliderComponent } from '../../image-slider/image-slider.component'
 import { Asset } from 'contentful';
 
 @Component({
-  selector: 'app-lifestyle',
-  templateUrl: './lifestyle.component.html',
-  styleUrl: './lifestyle.component.scss',
+  selector: 'app-street-in-color',
+  templateUrl: './street-in-color.component.html',
+  styleUrl: './street-in-color.component.scss',
   imports: [ImageSliderComponent]
 })
-export class LifestyleComponent {
+export class StreetInColorComponent {
   private cs = inject(ContentfulService);
 
   post = this.cs.post;
@@ -22,6 +22,6 @@ export class LifestyleComponent {
   });
 
   ngOnInit(): void {
-    this.cs.getPostBySlug('lifestyle');
+    this.cs.getPostBySlug('street-in-color');
   }
 }

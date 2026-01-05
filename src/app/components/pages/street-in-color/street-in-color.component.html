@@ -1,0 +1,17 @@
+@let _loading = loading();
+@let _error = error();
+@let _images = images();
+
+<section>
+  @if (_loading) {
+    <p>Loading...</p>
+  } @else if (_error) {
+    <p class="error">{{ _error }}</p>
+  } @else {
+    @if (_images) {
+      <app-image-slider [images]="_images" />
+    } @else {
+      <p>No photos found</p>
+    }
+  }
+</section>
