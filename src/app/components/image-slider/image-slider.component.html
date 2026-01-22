@@ -16,7 +16,8 @@
         <img
           [src]="img.fields.file?.url"
           [alt]="img.fields.description || ''"
-          loading="lazy"
+          [attr.loading]="_current === 0 ? null : 'lazy'"
+          [attr.fetchpriority]="_current === 0 ? 'high' : null"
           decoding="async"
           [class]="setOrientation(img.fields.file?.details)"
         />
