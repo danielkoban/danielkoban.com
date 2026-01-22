@@ -15,7 +15,7 @@ type LinkType = {
 
 export class HeaderComponent {
   links: LinkType[] = [
-    { url: '/street-in-color', label: 'Street in color', ariaLabel: 'See my color street photography' },
+    { url: '/in-color', label: 'In color', ariaLabel: 'See my color street photography' },
     { url: '/lifestyle', label: 'Lifestyle', ariaLabel: 'Go to Lifestyle page' },
     { url: '/about', label: 'About', ariaLabel: 'Read about me' }
   ]

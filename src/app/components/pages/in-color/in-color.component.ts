@@ -4,9 +4,9 @@ import { ImageSliderComponent } from '../../image-slider/image-slider.component'
 import { Asset } from 'contentful';
 
 @Component({
-  selector: 'app-street-in-color',
-  templateUrl: './street-in-color.component.html',
-  styleUrl: './street-in-color.component.scss',
+  selector: 'app-in-color',
+  templateUrl: './in-color.component.html',
+  styleUrl: './in-color.component.scss',
   imports: [ImageSliderComponent]
 })
 export class StreetInColorComponent {
@@ -22,6 +22,6 @@ export class StreetInColorComponent {
   });
 
   ngOnInit(): void {
-    this.cs.getPostBySlug('street-in-color');
+    this.cs.getPostBySlug('in-color');
   }
 }
