@@ -24,7 +24,12 @@
     </ul>
   </nav>
 
-  <button class="hamburger" [class.open]="isMenuOpen" (click)="toggleMenu()">
+  <button
+    class="hamburger"
+    [class.open]="isMenuOpen"
+    (click)="toggleMenu()"
+    aria-label="Toggle menu"
+  >
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
