@@ -1,0 +1,18 @@
+@use '../../../../styles/media' as *;
+
+:host {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  @include media-small-only {
+    margin: 0 -2.4rem;
+  }
+
+  section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

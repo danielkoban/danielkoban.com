@@ -17,6 +17,7 @@ export class HeaderComponent {
   links: LinkType[] = [
     { url: '/in-color', label: 'In color', ariaLabel: 'See my color street photography' },
     { url: '/lifestyle', label: 'Lifestyle', ariaLabel: 'Go to Lifestyle page' },
+    { url: '/landscape', label: 'Landscape', ariaLabel: 'Visit landscape page' },
     { url: '/about', label: 'About', ariaLabel: 'Read about me' }
   ]
   isOpen = signal<boolean>(false);
