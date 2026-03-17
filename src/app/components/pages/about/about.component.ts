@@ -15,8 +15,11 @@ export class AboutComponent {
   error = this.cs.error;
 
   images = computed(() => {
-    const images = this.page()?.fields.images;
-    return (images as unknown as Asset[]) ?? [];
+    const rawImages = this.page()?.fields.images;
+    if (!rawImages || !Array.isArray(rawImages)) {
+      return [];
+    }
+    return rawImages.filter((img): img is Asset => !!img?.sys?.id) as Asset[];
   });
 
   ngOnInit(): void {

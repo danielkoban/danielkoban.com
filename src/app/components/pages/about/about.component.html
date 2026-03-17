@@ -10,8 +10,8 @@
   } @else {
     @if (_page) {
       <div class="about__img-wrapper">
-        @for (img of _page.fields.images ?? []; track img.sys.id) {
-          <img [src]="'https:' + img.fields.file.url" [alt]="img.fields.description || ''" loading="lazy">
+        @for (img of images(); track img.sys.id) {
+          <img [src]="'https:' + img.fields.file?.url" [alt]="img.fields.description || ''" loading="lazy">
         }
       </div>
       <div class="about__content">
